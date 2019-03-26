@@ -19,8 +19,8 @@ class IngredientFormRow extends Component {
   }
 
   render() {
-    const { ingredientName } = this.state;
-    const { ingredientAmount } = this.state;
+    const { ingredientName, ingredientAmount } = this.state;
+
     return (
       <tr>
         <td>
