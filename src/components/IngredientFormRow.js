@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class IngredientFormRow extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class IngredientFormRow extends Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.toggleSelected = this.toggleSelected.bind(this);
   }
 
   handleInputChange(event) {
@@ -18,13 +20,23 @@ class IngredientFormRow extends Component {
     });
   }
 
+  toggleSelected() {
+    console.log(this.props.optionNum);
+  }
+
   render() {
     const { ingredientName, ingredientAmount } = this.state;
+    const { optionNum } = this.props;
 
     return (
       <tr>
         <td>
-          <input type="radio" value="option1" />
+          <input
+            name="baseIngredient"
+            type="radio"
+            value={optionNum}
+            onChange={this.toggleSelected}
+          />
         </td>
         <td>
           <input
@@ -48,5 +60,9 @@ class IngredientFormRow extends Component {
     );
   }
 }
+
+IngredientFormRow.propTypes = {
+  optionNum: PropTypes.number.isRequired
+};
 
 export default IngredientFormRow;

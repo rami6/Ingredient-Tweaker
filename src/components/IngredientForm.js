@@ -12,7 +12,7 @@ class IngredientForm extends Component {
   render() {
     const { rowCount } = this.state;
     const rowIndices = Array.from(Array(rowCount).keys());
-    const formRows = rowIndices.map(i => <IngredientFormRow key={i} />);
+    const formRows = rowIndices.map(i => <IngredientFormRow key={i} optionNum={i} />);
     return (
       <table>
         <tbody>{formRows}</tbody>
