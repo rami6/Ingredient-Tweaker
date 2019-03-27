@@ -10,7 +10,7 @@ class IngredientFormRow extends Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.toggleSelected = this.toggleSelected.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleInputChange(event) {
@@ -20,22 +20,23 @@ class IngredientFormRow extends Component {
     });
   }
 
-  toggleSelected() {
-    console.log(this.props.optionNum);
+  handleSelect() {
+    const { optionNum, updateSelect } = this.props;
+    updateSelect(optionNum);
   }
 
   render() {
     const { ingredientName, ingredientAmount } = this.state;
-    const { optionNum } = this.props;
+    const { optionNum, selectedOption } = this.props;
 
     return (
       <tr>
         <td>
           <input
-            name="baseIngredient"
             type="radio"
             value={optionNum}
-            onChange={this.toggleSelected}
+            onChange={this.handleSelect}
+            checked={selectedOption === optionNum}
           />
         </td>
         <td>
@@ -62,7 +63,9 @@ class IngredientFormRow extends Component {
 }
 
 IngredientFormRow.propTypes = {
-  optionNum: PropTypes.number.isRequired
+  optionNum: PropTypes.number.isRequired,
+  selectedOption: PropTypes.number.isRequired,
+  updateSelect: PropTypes.func.isRequired
 };
 
 export default IngredientFormRow;
