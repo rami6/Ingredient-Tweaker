@@ -75,7 +75,7 @@ class IngredientFormRow extends Component {
         />
       );
     } else {
-      adjustedField = ingredientAmount * multiplier;
+      adjustedField = (ingredientAmount * multiplier).toFixed(1);
     }
 
     return (
