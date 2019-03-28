@@ -6,12 +6,14 @@ class IngredientFormRow extends Component {
     super(props);
     this.state = {
       ingredientName: '',
-      ingredientAmount: 0
+      ingredientAmount: 0,
+      adjustedBaseAmount: 0
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-    this.handleAdjust = this.handleAdjust.bind(this);
+    this.handleOriginalAmountChange = this.handleOriginalAmountChange.bind(this);
+    this.handleAdjustedBaseAmountChange = this.handleAdjustedBaseAmountChange.bind(this);
   }
 
   handleInputChange(event) {
@@ -22,32 +24,54 @@ class IngredientFormRow extends Component {
   }
 
   handleSelect() {
-    const { optionNum, updateSelect } = this.props;
+    const { optionNum, updateSelect, multiplier } = this.props;
     updateSelect(optionNum);
+    this.setState(prevState => ({
+      adjustedBaseAmount: prevState.ingredientAmount * multiplier
+    }));
   }
 
-  handleAdjust(event) {
-    const { ingredientAmount } = this.state;
-    if (ingredientAmount > 0) {
-      const adjustedAmount = event.target.value;
-      const ratio = adjustedAmount / ingredientAmount;
+  handleOriginalAmountChange(event) {
+    this.handleInputChange(event);
+    const { optionNum, selectedOption } = this.props;
+    const newOriginalAmount = event.target.value;
+    if (selectedOption === optionNum) {
       const { updateMultiplier } = this.props;
+      if (newOriginalAmount > 0) {
+        const { adjustedBaseAmount } = this.state;
+        const ratio = adjustedBaseAmount / newOriginalAmount;
+        updateMultiplier(ratio);
+      } else {
+        this.setState({
+          adjustedBaseAmount: 0
+        });
+        updateMultiplier(1);
+      }
+    }
+  }
+
+  handleAdjustedBaseAmountChange(event) {
+    const { ingredientAmount } = this.state;
+    this.handleInputChange(event);
+    if (ingredientAmount > 0) {
+      const { updateMultiplier } = this.props;
+      const ratio = event.target.value / ingredientAmount;
       updateMultiplier(ratio);
     }
   }
 
   render() {
-    const { ingredientName, ingredientAmount } = this.state;
+    const { ingredientName, ingredientAmount, adjustedBaseAmount } = this.state;
     const { optionNum, selectedOption, multiplier } = this.props;
     let adjustedField;
 
     if (selectedOption === optionNum) {
       adjustedField = (
         <input
-          name="adjustedAmount"
+          name="adjustedBaseAmount"
           type="number"
-          value={ingredientAmount * multiplier}
-          onChange={this.handleAdjust}
+          value={adjustedBaseAmount}
+          onChange={this.handleAdjustedBaseAmountChange}
         />
       );
     } else {
@@ -77,7 +101,7 @@ class IngredientFormRow extends Component {
             name="ingredientAmount"
             type="number"
             value={ingredientAmount}
-            onChange={this.handleInputChange}
+            onChange={this.handleOriginalAmountChange}
           />
         </td>
         <td>→</td>
