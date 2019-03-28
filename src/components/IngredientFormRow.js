@@ -26,9 +26,17 @@ class IngredientFormRow extends Component {
   handleSelect() {
     const { optionNum, updateSelect, multiplier } = this.props;
     updateSelect(optionNum);
-    this.setState(prevState => ({
-      adjustedBaseAmount: prevState.ingredientAmount * multiplier
-    }));
+    if (multiplier > 0) {
+      this.setState(prevState => ({
+        adjustedBaseAmount: prevState.ingredientAmount * multiplier
+      }));
+    } else {
+      const { updateMultiplier } = this.props;
+      updateMultiplier(1);
+      this.setState(prevState => ({
+        adjustedBaseAmount: prevState.ingredientAmount
+      }));
+    }
   }
 
   handleOriginalAmountChange(event) {
