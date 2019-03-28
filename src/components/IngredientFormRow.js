@@ -6,7 +6,8 @@ class IngredientFormRow extends Component {
     super(props);
     this.state = {
       ingredientName: '',
-      ingredientAmount: 0
+      ingredientAmount: 0,
+      adjustedAmount: 0
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,8 +27,22 @@ class IngredientFormRow extends Component {
   }
 
   render() {
-    const { ingredientName, ingredientAmount } = this.state;
+    const { ingredientName, ingredientAmount, adjustedAmount } = this.state;
     const { optionNum, selectedOption } = this.props;
+    let adjustedField;
+
+    if (selectedOption === optionNum) {
+      adjustedField = (
+        <input
+          name="adjustedAmount"
+          type="number"
+          value={adjustedAmount}
+          onChange={this.handleInputChange}
+        />
+      );
+    } else {
+      adjustedField = adjustedAmount;
+    }
 
     return (
       <tr>
@@ -56,7 +71,7 @@ class IngredientFormRow extends Component {
           />
         </td>
         <td>→</td>
-        <td>{ingredientAmount}</td>
+        <td>{adjustedField}</td>
       </tr>
     );
   }
