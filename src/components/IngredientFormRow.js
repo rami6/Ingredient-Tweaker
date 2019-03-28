@@ -6,12 +6,12 @@ class IngredientFormRow extends Component {
     super(props);
     this.state = {
       ingredientName: '',
-      ingredientAmount: 0,
-      adjustedAmount: 0
+      ingredientAmount: 0
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleAdjust = this.handleAdjust.bind(this);
   }
 
   handleInputChange(event) {
@@ -26,9 +26,19 @@ class IngredientFormRow extends Component {
     updateSelect(optionNum);
   }
 
+  handleAdjust(event) {
+    const { ingredientAmount } = this.state;
+    if (ingredientAmount > 0) {
+      const adjustedAmount = event.target.value;
+      const ratio = adjustedAmount / ingredientAmount;
+      const { updateMultiplier } = this.props;
+      updateMultiplier(ratio);
+    }
+  }
+
   render() {
-    const { ingredientName, ingredientAmount, adjustedAmount } = this.state;
-    const { optionNum, selectedOption } = this.props;
+    const { ingredientName, ingredientAmount } = this.state;
+    const { optionNum, selectedOption, multiplier } = this.props;
     let adjustedField;
 
     if (selectedOption === optionNum) {
@@ -36,12 +46,12 @@ class IngredientFormRow extends Component {
         <input
           name="adjustedAmount"
           type="number"
-          value={adjustedAmount}
-          onChange={this.handleInputChange}
+          value={ingredientAmount * multiplier}
+          onChange={this.handleAdjust}
         />
       );
     } else {
-      adjustedField = adjustedAmount;
+      adjustedField = ingredientAmount * multiplier;
     }
 
     return (
@@ -80,7 +90,9 @@ class IngredientFormRow extends Component {
 IngredientFormRow.propTypes = {
   optionNum: PropTypes.number.isRequired,
   selectedOption: PropTypes.number.isRequired,
-  updateSelect: PropTypes.func.isRequired
+  multiplier: PropTypes.number.isRequired,
+  updateSelect: PropTypes.func.isRequired,
+  updateMultiplier: PropTypes.func.isRequired
 };
 
 export default IngredientFormRow;
