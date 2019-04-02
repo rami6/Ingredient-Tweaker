@@ -1,0 +1,14 @@
+input {
+    font-size: 15px;
+    color: #575757;
+}
+
+.adjusted-amount {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.amount-input {
+    width: 50px;
+}

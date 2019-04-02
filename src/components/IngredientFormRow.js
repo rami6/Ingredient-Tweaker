@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './IngredientFormRow.css';
 
 class IngredientFormRow extends Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class IngredientFormRow extends Component {
     if (selectedOption === optionNum) {
       adjustedField = (
         <input
+          className="amount-input"
           name="adjustedBaseAmount"
           type="number"
           value={adjustedBaseAmount}
@@ -106,6 +108,7 @@ class IngredientFormRow extends Component {
         </td>
         <td>
           <input
+            className="amount-input"
             name="ingredientAmount"
             type="number"
             value={ingredientAmount}
@@ -113,7 +116,7 @@ class IngredientFormRow extends Component {
           />
         </td>
         <td>→</td>
-        <td>{adjustedField}</td>
+        <td className="adjusted-amount">{adjustedField}</td>
       </tr>
     );
   }
