@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import './IngredientFormRow.css';
 
 class IngredientFormRow extends Component {
+  static handleAmountFocus(event) {
+    event.target.select();
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -83,6 +87,7 @@ class IngredientFormRow extends Component {
           type="number"
           value={adjustedBaseAmount}
           onChange={this.handleAdjustedBaseAmountChange}
+          onFocus={IngredientFormRow.handleAmountFocus}
         />
       );
     } else {
@@ -123,6 +128,7 @@ class IngredientFormRow extends Component {
             type="number"
             value={ingredientAmount}
             onChange={this.handleOriginalAmountChange}
+            onFocus={IngredientFormRow.handleAmountFocus}
           />
         </td>
         <td>→</td>
