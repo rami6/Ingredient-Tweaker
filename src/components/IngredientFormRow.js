@@ -73,6 +73,7 @@ class IngredientFormRow extends Component {
     const { ingredientName, ingredientAmount, adjustedBaseAmount } = this.state;
     const { optionNum, selectedOption, multiplier } = this.props;
     let adjustedField;
+    let placeHolder;
 
     if (selectedOption === optionNum) {
       adjustedField = (
@@ -92,6 +93,10 @@ class IngredientFormRow extends Component {
       );
     }
 
+    if (optionNum === 0) {
+      placeHolder = 'Ingredient name';
+    }
+
     return (
       <tr>
         <td>
@@ -108,6 +113,7 @@ class IngredientFormRow extends Component {
             type="text"
             value={ingredientName}
             onChange={this.handleInputChange}
+            placeholder={placeHolder}
           />
         </td>
         <td>
