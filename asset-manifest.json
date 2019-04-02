@@ -1,13 +1,13 @@
 {
-  "main.css": "/Ingredient-Tweaker/static/css/main.bc0e1296.chunk.css",
-  "main.js": "/Ingredient-Tweaker/static/js/main.599cfe68.chunk.js",
-  "main.js.map": "/Ingredient-Tweaker/static/js/main.599cfe68.chunk.js.map",
+  "main.css": "/Ingredient-Tweaker/static/css/main.ecd2c260.chunk.css",
+  "main.js": "/Ingredient-Tweaker/static/js/main.fdf601b7.chunk.js",
+  "main.js.map": "/Ingredient-Tweaker/static/js/main.fdf601b7.chunk.js.map",
   "runtime~main.js": "/Ingredient-Tweaker/static/js/runtime~main.aee883a2.js",
   "runtime~main.js.map": "/Ingredient-Tweaker/static/js/runtime~main.aee883a2.js.map",
   "static/js/2.c43d9815.chunk.js": "/Ingredient-Tweaker/static/js/2.c43d9815.chunk.js",
   "static/js/2.c43d9815.chunk.js.map": "/Ingredient-Tweaker/static/js/2.c43d9815.chunk.js.map",
   "index.html": "/Ingredient-Tweaker/index.html",
-  "precache-manifest.3d76824a661140e65cf0daab2e9547f1.js": "/Ingredient-Tweaker/precache-manifest.3d76824a661140e65cf0daab2e9547f1.js",
+  "precache-manifest.b5ecf1334b9c6c6b131b407e579d9728.js": "/Ingredient-Tweaker/precache-manifest.b5ecf1334b9c6c6b131b407e579d9728.js",
   "service-worker.js": "/Ingredient-Tweaker/service-worker.js",
-  "static/css/main.bc0e1296.chunk.css.map": "/Ingredient-Tweaker/static/css/main.bc0e1296.chunk.css.map"
+  "static/css/main.ecd2c260.chunk.css.map": "/Ingredient-Tweaker/static/css/main.ecd2c260.chunk.css.map"
 }
