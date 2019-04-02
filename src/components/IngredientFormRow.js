@@ -28,7 +28,7 @@ class IngredientFormRow extends Component {
     updateSelect(optionNum);
     if (multiplier > 0) {
       this.setState(prevState => ({
-        adjustedBaseAmount: prevState.ingredientAmount * multiplier
+        adjustedBaseAmount: parseFloat((prevState.ingredientAmount * multiplier).toFixed(1))
       }));
     } else {
       const { updateMultiplier } = this.props;
@@ -83,7 +83,7 @@ class IngredientFormRow extends Component {
         />
       );
     } else {
-      adjustedField = (ingredientAmount * multiplier).toFixed(1);
+      adjustedField = parseFloat((ingredientAmount * multiplier).toFixed(1));
     }
 
     return (
