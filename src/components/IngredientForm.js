@@ -5,7 +5,7 @@ class IngredientForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rowCount: 5,
+      rowCount: 10,
       selectedOption: 0,
       multiplier: 1
     };

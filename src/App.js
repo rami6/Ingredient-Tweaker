@@ -6,9 +6,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <IngredientForm />
-        </header>
+        <h2>Ingredient Tweaker</h2>
+        <IngredientForm />
       </div>
     );
   }

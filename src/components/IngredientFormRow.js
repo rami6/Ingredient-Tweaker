@@ -85,7 +85,11 @@ class IngredientFormRow extends Component {
         />
       );
     } else {
-      adjustedField = parseFloat((ingredientAmount * multiplier).toFixed(1));
+      adjustedField = (
+        <div className="adjusted-amount">
+          {parseFloat((ingredientAmount * multiplier).toFixed(1))}
+        </div>
+      );
     }
 
     return (
@@ -116,7 +120,7 @@ class IngredientFormRow extends Component {
           />
         </td>
         <td>→</td>
-        <td className="adjusted-amount">{adjustedField}</td>
+        <td>{adjustedField}</td>
       </tr>
     );
   }
