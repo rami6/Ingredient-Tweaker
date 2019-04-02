@@ -3,9 +3,13 @@ input {
     color: #575757;
 }
 
+td {
+    vertical-align: bottom;
+    font-size: 18px;
+}
+
 .adjusted-amount {
     text-align: left;
-    font-size: 18px;
     font-weight: 600;
 }
 

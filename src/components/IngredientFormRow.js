@@ -131,7 +131,9 @@ class IngredientFormRow extends Component {
             onFocus={IngredientFormRow.handleAmountFocus}
           />
         </td>
-        <td>→</td>
+        <td>
+          <div>→</div>
+        </td>
         <td>{adjustedField}</td>
       </tr>
     );
