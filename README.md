@@ -8,5 +8,5 @@ Once you input original amounts and set an adjusted amount to be a base, you can
 ![image](https://user-images.githubusercontent.com/30137645/55385466-18fbad80-54e2-11e9-978b-0ac4865448aa.png)
 
 #### Technology used
-- React
+- React.js
 - node.js
