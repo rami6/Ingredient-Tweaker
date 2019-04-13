@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import IngredientFormRow from './IngredientFormRow';
+import './IngredientForm.css';
 
 class IngredientForm extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class IngredientForm extends Component {
 
     this.updateSelect = this.updateSelect.bind(this);
     this.updateMultiplier = this.updateMultiplier.bind(this);
+    this.addFormRow = this.addFormRow.bind(this);
   }
 
   updateSelect(option) {
@@ -24,6 +26,12 @@ class IngredientForm extends Component {
     this.setState({
       multiplier: number
     });
+  }
+
+  addFormRow() {
+    this.setState(prevState => ({
+      rowCount: prevState.rowCount + 1
+    }));
   }
 
   render() {
@@ -40,9 +48,14 @@ class IngredientForm extends Component {
       />
     ));
     return (
-      <table>
-        <tbody>{formRows}</tbody>
-      </table>
+      <div>
+        <table>
+          <tbody>{formRows}</tbody>
+        </table>
+        <button className="add-row-button" type="button" onClick={this.addFormRow}>
+          +
+        </button>
+      </div>
     );
   }
 }
