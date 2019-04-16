@@ -8,7 +8,8 @@ td {
     font-size: 18px;
 }
 
-.adjusted-amount {
+.adjusted-amount,
+.adjusted-unit {
     text-align: left;
     font-weight: 600;
 }

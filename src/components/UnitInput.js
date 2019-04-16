@@ -31,6 +31,8 @@ class UnitInput extends Component {
     this.setState({
       value: newValue
     });
+    const { setAdjustedUnit } = this.props;
+    setAdjustedUnit(newValue);
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
@@ -74,7 +76,8 @@ class UnitInput extends Component {
 }
 
 UnitInput.propTypes = {
-  optionNum: PropTypes.number.isRequired
+  optionNum: PropTypes.number.isRequired,
+  setAdjustedUnit: PropTypes.func.isRequired
 };
 
 export default UnitInput;

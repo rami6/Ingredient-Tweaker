@@ -13,13 +13,21 @@ class IngredientFormRow extends Component {
     this.state = {
       ingredientName: '',
       ingredientAmount: 0,
-      adjustedBaseAmount: 0
+      adjustedBaseAmount: 0,
+      adjustedUnit: ''
     };
 
+    this.setAdjustedUnit = this.setAdjustedUnit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleOriginalAmountChange = this.handleOriginalAmountChange.bind(this);
     this.handleAdjustedBaseAmountChange = this.handleAdjustedBaseAmountChange.bind(this);
+  }
+
+  setAdjustedUnit(unit) {
+    this.setState({
+      adjustedUnit: unit
+    });
   }
 
   handleInputChange(event) {
@@ -75,13 +83,13 @@ class IngredientFormRow extends Component {
   }
 
   render() {
-    const { ingredientName, ingredientAmount, adjustedBaseAmount } = this.state;
+    const { ingredientName, ingredientAmount, adjustedBaseAmount, adjustedUnit } = this.state;
     const { optionNum, selectedOption, multiplier } = this.props;
-    let adjustedField;
+    let adjustedAmountField;
     let placeHolder;
 
     if (selectedOption === optionNum) {
-      adjustedField = (
+      adjustedAmountField = (
         <input
           className="amount-input"
           name="adjustedBaseAmount"
@@ -92,7 +100,7 @@ class IngredientFormRow extends Component {
         />
       );
     } else {
-      adjustedField = (
+      adjustedAmountField = (
         <div className="adjusted-amount">
           {parseFloat((ingredientAmount * multiplier).toFixed(1))}
         </div>
@@ -133,12 +141,15 @@ class IngredientFormRow extends Component {
           />
         </td>
         <td>
-          <UnitInput optionNum={optionNum} />
+          <UnitInput optionNum={optionNum} setAdjustedUnit={this.setAdjustedUnit} />
         </td>
         <td>
           <div>→</div>
         </td>
-        <td>{adjustedField}</td>
+        <td>{adjustedAmountField}</td>
+        <td>
+          <div className="adjusted-unit">{adjustedUnit}</div>
+        </td>
       </tr>
     );
   }
