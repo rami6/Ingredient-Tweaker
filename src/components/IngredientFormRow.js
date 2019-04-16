@@ -84,9 +84,37 @@ class IngredientFormRow extends Component {
 
   render() {
     const { ingredientName, ingredientAmount, adjustedBaseAmount, adjustedUnit } = this.state;
-    const { optionNum, selectedOption, multiplier } = this.props;
+    const { optionNum, selectedOption, multiplier, showOriginalAmounts } = this.props;
+    let originalAmountTd;
+    let originalUnitTd;
+    let arrowTd;
     let adjustedAmountField;
     let placeHolder;
+
+    if (showOriginalAmounts) {
+      originalAmountTd = (
+        <td>
+          <input
+            className="amount-input"
+            name="ingredientAmount"
+            type="number"
+            value={ingredientAmount}
+            onChange={this.handleOriginalAmountChange}
+            onFocus={IngredientFormRow.handleAmountFocus}
+          />
+        </td>
+      );
+      originalUnitTd = (
+        <td>
+          <UnitInput optionNum={optionNum} setAdjustedUnit={this.setAdjustedUnit} />
+        </td>
+      );
+      arrowTd = (
+        <td>
+          <div>→</div>
+        </td>
+      );
+    }
 
     if (selectedOption === optionNum) {
       adjustedAmountField = (
@@ -130,22 +158,9 @@ class IngredientFormRow extends Component {
             placeholder={placeHolder}
           />
         </td>
-        <td>
-          <input
-            className="amount-input"
-            name="ingredientAmount"
-            type="number"
-            value={ingredientAmount}
-            onChange={this.handleOriginalAmountChange}
-            onFocus={IngredientFormRow.handleAmountFocus}
-          />
-        </td>
-        <td>
-          <UnitInput optionNum={optionNum} setAdjustedUnit={this.setAdjustedUnit} />
-        </td>
-        <td>
-          <div>→</div>
-        </td>
+        {originalAmountTd}
+        {originalUnitTd}
+        {arrowTd}
         <td>{adjustedAmountField}</td>
         <td>
           <div className="adjusted-unit">{adjustedUnit}</div>
@@ -159,6 +174,7 @@ IngredientFormRow.propTypes = {
   optionNum: PropTypes.number.isRequired,
   selectedOption: PropTypes.number.isRequired,
   multiplier: PropTypes.number.isRequired,
+  showOriginalAmounts: PropTypes.bool.isRequired,
   updateSelect: PropTypes.func.isRequired,
   updateMultiplier: PropTypes.func.isRequired
 };
