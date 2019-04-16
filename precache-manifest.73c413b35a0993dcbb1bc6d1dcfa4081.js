@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "7b7c0d526ab454c3968b",
+    "revision": "d99faa05b3b0834a96e3",
     "url": "/Ingredient-Tweaker/static/css/main.08a1f7b5.chunk.css"
   },
   {
-    "revision": "7b7c0d526ab454c3968b",
-    "url": "/Ingredient-Tweaker/static/js/main.4df3dd6c.chunk.js"
+    "revision": "d99faa05b3b0834a96e3",
+    "url": "/Ingredient-Tweaker/static/js/main.a9b59b52.chunk.js"
   },
   {
     "revision": "1cfd429ca04f4b4aaeb9",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/Ingredient-Tweaker/static/js/2.18d0a4f6.chunk.js"
   },
   {
-    "revision": "d73bcef9f27bb645d2f67a6250ac93ef",
+    "revision": "7b79dac43eae7a43171eeebb56cdb29c",
     "url": "/Ingredient-Tweaker/index.html"
   }
 ];
