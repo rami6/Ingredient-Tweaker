@@ -12,9 +12,9 @@ class IngredientFormRow extends Component {
     super(props);
     this.state = {
       ingredientName: '',
-      ingredientAmount: 0,
+      ingredientAmount: null,
       ingredientUnit: '',
-      adjustedBaseAmount: 0
+      adjustedBaseAmount: null
     };
 
     this.setAdjustedUnit = this.setAdjustedUnit.bind(this);
@@ -89,7 +89,13 @@ class IngredientFormRow extends Component {
     let originalUnitTd;
     let arrowTd;
     let adjustedAmountField;
-    let placeHolder;
+    let namePlaceHolder;
+    let amountPlaceHolder;
+
+    if (optionNum === 0) {
+      namePlaceHolder = 'Ingredient name';
+      amountPlaceHolder = '0';
+    }
 
     if (showOriginalAmounts) {
       originalAmountTd = (
@@ -98,6 +104,7 @@ class IngredientFormRow extends Component {
             className="amount-input"
             name="ingredientAmount"
             type="number"
+            placeholder={amountPlaceHolder}
             value={ingredientAmount}
             onChange={this.handleOriginalAmountChange}
             onFocus={IngredientFormRow.handleAmountFocus}
@@ -127,20 +134,19 @@ class IngredientFormRow extends Component {
           name="adjustedBaseAmount"
           type="number"
           value={adjustedBaseAmount}
+          placeholder={amountPlaceHolder}
           onChange={this.handleAdjustedBaseAmountChange}
           onFocus={IngredientFormRow.handleAmountFocus}
         />
       );
+    } else if (ingredientAmount * multiplier === 0) {
+      adjustedAmountField = <div className="adjusted-amount" />;
     } else {
       adjustedAmountField = (
         <div className="adjusted-amount">
           {parseFloat((ingredientAmount * multiplier).toFixed(1))}
         </div>
       );
-    }
-
-    if (optionNum === 0) {
-      placeHolder = 'Ingredient name';
     }
 
     return (
@@ -159,7 +165,7 @@ class IngredientFormRow extends Component {
             type="text"
             value={ingredientName}
             onChange={this.handleInputChange}
-            placeholder={placeHolder}
+            placeholder={namePlaceHolder}
           />
         </td>
         {originalAmountTd}
