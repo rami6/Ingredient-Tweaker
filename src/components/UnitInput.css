@@ -3,9 +3,11 @@
 }
 
 .react-autosuggest__input {
-    width: 40px;
+    width: 36px;
     background-color: #ffefd7;
     border-radius: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .react-autosuggest__suggestions-container--open {

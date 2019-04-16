@@ -8,12 +8,17 @@ td {
     font-size: 18px;
 }
 
-.adjusted-amount,
+.adjusted-amount {
+    text-align: right;
+    font-weight: 600;
+}
+
 .adjusted-unit {
     text-align: left;
     font-weight: 600;
 }
 
 .amount-input {
+    text-align: right;
     width: 50px;
 }
