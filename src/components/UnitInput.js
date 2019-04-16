@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
-import UnitFieldTheme from './UnitFieldTheme.css';
+import './UnitInput.css';
 
 const units = ['g', 'ml', 'tbsp', 'tsp', 'cup'];
 
@@ -18,7 +18,7 @@ const getSuggestionValue = suggestion => suggestion;
 
 const renderSuggestion = suggestion => <div>{suggestion}</div>;
 
-class UnitField extends Component {
+class UnitInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,7 +61,6 @@ class UnitField extends Component {
 
     return (
       <Autosuggest
-        theme={UnitFieldTheme}
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
@@ -74,8 +73,8 @@ class UnitField extends Component {
   }
 }
 
-UnitField.propTypes = {
+UnitInput.propTypes = {
   optionNum: PropTypes.number.isRequired
 };
 
-export default UnitField;
+export default UnitInput;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import UnitField from './UnitField';
+import UnitInput from './UnitInput';
 import './IngredientFormRow.css';
 
 class IngredientFormRow extends Component {
@@ -133,7 +133,7 @@ class IngredientFormRow extends Component {
           />
         </td>
         <td>
-          <UnitField optionNum={optionNum} />
+          <UnitInput optionNum={optionNum} />
         </td>
         <td>
           <div>→</div>
