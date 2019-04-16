@@ -14,6 +14,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+.name-input {
+    width: 130px;
+}
+
 .adjusted-amount {
     text-align: right;
     font-weight: 600;

@@ -161,6 +161,7 @@ class IngredientFormRow extends Component {
         </td>
         <td>
           <input
+            className="name-input"
             name="ingredientName"
             type="text"
             value={ingredientName}
