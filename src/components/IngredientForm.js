@@ -76,7 +76,7 @@ class IngredientForm extends Component {
           <th />
           <th>
             <button type="button" onClick={this.toggleShowOriginalAmounts}>
-              Show original ammounts
+              Show original amounts
             </button>
           </th>
         </tr>
