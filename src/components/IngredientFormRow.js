@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import UnitField from './UnitField';
 import './IngredientFormRow.css';
 
 class IngredientFormRow extends Component {
@@ -130,6 +131,9 @@ class IngredientFormRow extends Component {
             onChange={this.handleOriginalAmountChange}
             onFocus={IngredientFormRow.handleAmountFocus}
           />
+        </td>
+        <td>
+          <UnitField optionNum={optionNum} />
         </td>
         <td>
           <div>→</div>
