@@ -27,6 +27,13 @@ class UnitInput extends Component {
     };
   }
 
+  componentDidMount() {
+    const { ingredientUnit } = this.props;
+    this.setState({
+      value: ingredientUnit
+    });
+  }
+
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
@@ -77,6 +84,7 @@ class UnitInput extends Component {
 
 UnitInput.propTypes = {
   optionNum: PropTypes.number.isRequired,
+  ingredientUnit: PropTypes.string.isRequired,
   setAdjustedUnit: PropTypes.func.isRequired
 };
 

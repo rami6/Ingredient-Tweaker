@@ -13,8 +13,8 @@ class IngredientFormRow extends Component {
     this.state = {
       ingredientName: '',
       ingredientAmount: 0,
-      adjustedBaseAmount: 0,
-      adjustedUnit: ''
+      ingredientUnit: '',
+      adjustedBaseAmount: 0
     };
 
     this.setAdjustedUnit = this.setAdjustedUnit.bind(this);
@@ -26,7 +26,7 @@ class IngredientFormRow extends Component {
 
   setAdjustedUnit(unit) {
     this.setState({
-      adjustedUnit: unit
+      ingredientUnit: unit
     });
   }
 
@@ -83,7 +83,7 @@ class IngredientFormRow extends Component {
   }
 
   render() {
-    const { ingredientName, ingredientAmount, adjustedBaseAmount, adjustedUnit } = this.state;
+    const { ingredientName, ingredientAmount, ingredientUnit, adjustedBaseAmount } = this.state;
     const { optionNum, selectedOption, multiplier, showOriginalAmounts } = this.props;
     let originalAmountTd;
     let originalUnitTd;
@@ -106,7 +106,11 @@ class IngredientFormRow extends Component {
       );
       originalUnitTd = (
         <td>
-          <UnitInput optionNum={optionNum} setAdjustedUnit={this.setAdjustedUnit} />
+          <UnitInput
+            optionNum={optionNum}
+            ingredientUnit={ingredientUnit}
+            setAdjustedUnit={this.setAdjustedUnit}
+          />
         </td>
       );
       arrowTd = (
@@ -163,7 +167,7 @@ class IngredientFormRow extends Component {
         {arrowTd}
         <td>{adjustedAmountField}</td>
         <td>
-          <div className="adjusted-unit">{adjustedUnit}</div>
+          <div className="adjusted-unit">{ingredientUnit}</div>
         </td>
       </tr>
     );
