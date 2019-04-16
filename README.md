@@ -5,10 +5,10 @@ This app is for cases of...
 
 Once you input original amounts and set an adjusted amount to be a base, you can see adjusted amounts of all ingredients.
 
-<img width="984" alt="image" src="https://user-images.githubusercontent.com/30137645/56249078-4bb7b100-605f-11e9-822b-3cbbbc1d685b.png">
+<img width="938" alt="image" src="https://user-images.githubusercontent.com/30137645/56249709-9803f080-6061-11e9-8157-e8437f7bb0a5.png">
 
 You can hide original amounts for convenience.
-<img width="960" alt="Screen Shot 2019-04-16 at 3 52 24 PM" src="https://user-images.githubusercontent.com/30137645/56249198-b9fc7380-605f-11e9-951c-014ace73bbd2.png">
+<img width="939" alt="image" src="https://user-images.githubusercontent.com/30137645/56249787-def1e600-6061-11e9-8bd9-08a335689687.png">
 
 
 #### Technology used
